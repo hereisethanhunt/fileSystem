@@ -32,7 +32,13 @@ class AddModal extends React.Component {
       date: this.state.date,
       type: this.state.switch,
       children: [],
-      parentPath: "Root" + this.props.location.pathname
+      parentPath:
+        "Root" +
+        `${
+          this.props.location.pathname === "/"
+            ? ""
+            : this.props.location.pathname
+        }`
     };
     this.props.addData(newData);
   };
