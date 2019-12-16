@@ -1,0 +1,35 @@
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  display: flex;
+}
+
+.pathName {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 24px;
+  color: #81878c;
+  font-weight: lighter;
+  word-spacing: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+}
+
+.currentPath {
+  font-weight: 500;
+  color: black;
+}
+
+.icon {
+  margin-top: 0px;
+  margin-right: 40px;
+  font-size: 35px;
+  color: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,35 @@
+.heading {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.openBackdrop {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.openBackdrop:after {
+  display: flex;
+  width: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.views {
+  margin-left: 20px;
+  width: 100%;
+}

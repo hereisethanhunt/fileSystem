@@ -1,0 +1,80 @@
+.container {
+  padding: 10px;
+  margin: 10px;
+  width: 80px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+}
+
+.container:hover {
+  background: #e6f5ff;
+}
+
+.heading {
+  font-family: Lato, sans-serif;
+  font-weight: lighter;
+  font-size: 15px;
+  color: #535b62;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.image {
+  height: 80px;
+}
+
+/* -----------------DROPDOWN-------------------- */
+
+.dropdownOpen,
+.dropdownClose {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 10;
+  background: white;
+  width: 160px;
+  height: 145px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.13);
+}
+
+.dropdownOpen {
+  display: block;
+}
+
+.dropdownClose {
+  display: none;
+}
+
+.dropdownToggler {
+  right: 0px;
+  position: relative;
+}
+
+.dropdownBody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownBody div {
+  font-family: Lato, sans-serif;
+  font-weight: lighter;
+  color: #535b62;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 0;
+  padding: 15px;
+}
+
+.dropdownBody div:hover {
+  background: #eeeff1;
+}
+
+.dropdownBody div:last-child {
+  color: crimson;
+}
