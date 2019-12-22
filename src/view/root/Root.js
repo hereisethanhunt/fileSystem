@@ -21,7 +21,6 @@ class Root extends React.Component {
       this.props.FileSystem,
       this.props.location.pathname
     );
-
     if (!truePath) this.props.history.push("/");
   }
 
@@ -36,9 +35,9 @@ class Root extends React.Component {
           !this.state.backdrop ? styles.container : styles.openBackdrop
         }
       >
-        <Sidebar />
+        <Sidebar FileSystem={this.props.FileSystem} />
         <div className={styles.views}>
-          <SearchView />
+          <SearchView FileSystem={this.props.FileSystem} />
           <MainView
             FileSystem={this.props.FileSystem}
             backdrop={this.backdrop}

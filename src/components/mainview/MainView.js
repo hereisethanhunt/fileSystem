@@ -28,7 +28,7 @@ class MainView extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.FileSystem);
+    // console.log(this.props.FileSystem);
   }
 
   handleClick = e => {

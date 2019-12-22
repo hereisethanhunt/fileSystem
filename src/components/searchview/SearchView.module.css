@@ -5,6 +5,8 @@
   line-height: 35px;
   width: 100%;
   display: flex;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .pathName {
@@ -32,4 +34,22 @@
   margin-right: 40px;
   font-size: 35px;
   color: rgba(0, 0, 0, 0.4);
+}
+
+.select {
+  font-family: Avenir-Book;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.searchRoutes {
+  position: absolute;
+  right: 20px;
+  width: 300px;
+}
+
+@media (max-width: 840px) {
+  .searchRoutes {
+    position: static;
+  }
 }

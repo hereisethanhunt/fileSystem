@@ -17,8 +17,32 @@
   color: #afb2b6;
   letter-spacing: 0;
   cursor: pointer;
+  margin-bottom: 40px;
 }
 
 .root:hover {
   background: #eeeff1;
+}
+
+.dropdown {
+  height: 45px;
+  line-height: 45px;
+  font-family: Lato, sans-serif;
+  color: #afb2b6;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.dropdown div {
+  position: relative;
+  font-family: Lato-Regular;
+  font-size: 16px;
+  color: #2f363f;
+  letter-spacing: 0;
+  padding-left: 5%;
+}
+
+.dropdown div div span {
+  right: 10px;
+  position: absolute;
 }

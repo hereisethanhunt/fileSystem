@@ -4,10 +4,14 @@ export const ifPathExists = (fileSystem, path) => {
   if (path === "/") return true;
   else {
     let currFullPath = ROOT.concat(path);
+    let parentPath = currFullPath.substring(0, currFullPath.lastIndexOf("/"));
     let eachPath = currFullPath.split("/");
     let keyToMatch =
       eachPath[eachPath.length - 2] + "/" + eachPath[eachPath.length - 1];
-    if (fileSystem[keyToMatch]) {
+    if (
+      fileSystem[keyToMatch] &&
+      fileSystem[keyToMatch].parentPath === parentPath
+    ) {
       if (fileSystem[keyToMatch].type === "folder") return true;
       else return false;
     } else return false;
