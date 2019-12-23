@@ -13,7 +13,8 @@ class SearchView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      routesList: this.getRouteList(this.props.FileSystem)
+      routesList: this.getRouteList(this.props.FileSystem),
+      fileSys: []
     };
   }
 
@@ -29,8 +30,16 @@ class SearchView extends React.Component {
     return arrData;
   };
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({ routesList: this.getRouteList(nextProps.FileSystem) });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.FileSystem !== prevState.FileSystem) {
+      return { fileSys: nextProps.FileSystem };
+    } else return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.FileSystem !== this.props.FileSystem) {
+      this.setState({ routesList: this.getRouteList(this.state.fileSys) });
+    }
   }
 
   onSelectRoute = value => {
