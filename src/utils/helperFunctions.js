@@ -65,12 +65,12 @@ export const loadCurrentRouteData = (fileSystem, path) => {
   }
 };
 
-export const deleteAllChildren = (obj, key) => {
-  let arr = getAllChildren(obj, key, []);
-  arr.forEach(e => {
-    delete obj[e];
+export const deleteAllChildren = (fileSystem, key) => {
+  let arrOfAllChildrenWithKey = getAllChildren(fileSystem, key, []);
+  arrOfAllChildrenWithKey.forEach(e => {
+    delete fileSystem[e];
   });
-  return obj;
+  return fileSystem;
 };
 
 function getAllChildren(obj, key, arr) {

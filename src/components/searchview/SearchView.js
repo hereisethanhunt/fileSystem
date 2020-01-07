@@ -55,9 +55,9 @@ class SearchView extends React.Component {
         let child = this.props.FileSystem[value.value].name;
         let pathToChild = parent.substring(parent.indexOf("/"), parent.length);
         if (this.props.FileSystem[value.value].type === "file")
-          // for file show parent
+          // for file, show parent
           this.props.history.push(pathToChild);
-        // for folder go inside
+        // for folder, go inside
         else this.props.history.push(pathToChild + "/" + child);
       }
     }

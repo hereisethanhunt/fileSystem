@@ -9,11 +9,12 @@ export default function(state = {}, action) {
       let parent = newEntry[key].parentPath;
       const newState = { ...state };
 
-      let eachP = parent.split("/");
-      if (eachP.length > 2)
-        parent = eachP[eachP.length - 2] + "/" + eachP[eachP.length - 1];
+      let eachPath = parent.split("/");
+      if (eachPath.length > 2)
+        parent =
+          eachPath[eachPath.length - 2] + "/" + eachPath[eachPath.length - 1];
 
-      newState[parent].children.push(key);
+      newState[parent].children.push(key); // adding the new key to its parents children array
       let newData = {
         ...newState,
         ...newEntry
@@ -25,23 +26,28 @@ export default function(state = {}, action) {
       const deleteEntry = action.payload;
       let childDeleted = deleteAllChildren({ ...state }, deleteEntry);
 
-      let parentRoute = childDeleted[deleteEntry].parentPath;
-      let eachPath = parentRoute.split("/");
+      let parentOfDeleteEntry = childDeleted[deleteEntry].parentPath;
+      let eachPath = parentOfDeleteEntry.split("/");
       if (eachPath.length > 2)
-        parentRoute =
+        parentOfDeleteEntry =
           eachPath[eachPath.length - 2] + "/" + eachPath[eachPath.length - 1];
 
       const {
         [deleteEntry]: parentValue,
-        ...currentDataDeleted
+        ...dataWithoutDeleteEntry
       } = childDeleted;
-      var deleteCurrentFromParent = currentDataDeleted[parentRoute].children;
-      var index = deleteCurrentFromParent.indexOf(deleteEntry);
+
+      var deleteKeyFromParent =
+        dataWithoutDeleteEntry[parentOfDeleteEntry].children;
+      var index = deleteKeyFromParent.indexOf(deleteEntry);
       if (index > -1) {
-        deleteCurrentFromParent.splice(index, 1);
+        deleteKeyFromParent.splice(index, 1);
       }
-      localStorage.setItem("FileSystem", JSON.stringify(currentDataDeleted));
-      return { ...currentDataDeleted };
+      localStorage.setItem(
+        "FileSystem",
+        JSON.stringify(dataWithoutDeleteEntry)
+      );
+      return { ...dataWithoutDeleteEntry };
     }
     default:
       return state;
