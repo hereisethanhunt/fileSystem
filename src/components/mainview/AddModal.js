@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./AddModal.module.css";
 import CloseIcon from "../../images/closeIcon.svg";
-
+import { checkDuplicateFiles } from "../../utils/helperFunctions";
 class AddModal extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +16,19 @@ class AddModal extends React.Component {
     };
   }
 
+  restrictFutureDate = date => {
+    const curMonth = parseInt(date.getMonth() + 1, 10);
+    const curDay = parseInt(date.getDate(), 10);
+    const curYear = date.getFullYear();
+    let formattedDate =
+      curYear +
+      "-" +
+      (curMonth < 10 ? "0" + curMonth : curMonth) +
+      "-" +
+      (curDay < 10 ? "0" + curDay : curDay);
+    return formattedDate;
+  };
+
   handleChange = (e, type) => {
     this.setState({ [type]: e.target.value });
   };
@@ -25,22 +38,28 @@ class AddModal extends React.Component {
   };
 
   addData = () => {
-    let newData = {
-      name: this.state.name,
-      size: this.state.size,
-      createdBy: this.state.creator,
-      date: this.state.date,
-      type: this.state.switch,
-      children: [],
-      parentPath:
-        "Root" +
-        `${
-          this.props.location.pathname === "/"
-            ? ""
-            : this.props.location.pathname
-        }`
-    };
-    this.props.addData(newData);
+    const { FileSystem, location } = this.props;
+    const { pathname } = location;
+    const { name } = this.state;
+    if (checkDuplicateFiles(name, FileSystem, pathname)) alert("Duplicacy");
+    else {
+      let newData = {
+        name: this.state.name,
+        size: this.state.size,
+        createdBy: this.state.creator,
+        date: this.state.date,
+        type: this.state.switch,
+        children: [],
+        parentPath:
+          "Root" +
+          `${
+            this.props.location.pathname === "/"
+              ? ""
+              : this.props.location.pathname
+          }`
+      };
+      this.props.addData(newData);
+    }
   };
 
   render() {
@@ -115,6 +134,7 @@ class AddModal extends React.Component {
               className={styles.input}
               placeholder="Date"
               type="date"
+              max={this.restrictFutureDate(new Date())}
               value={this.state.date}
               onChange={e => this.handleChange(e, "date")}
             />

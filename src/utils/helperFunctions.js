@@ -1,5 +1,12 @@
 import { ROOT } from "./constants";
 
+export const checkDuplicateFiles = (name, fileSystem, pathname) => {
+  let keyToCheck = getCurrentPath(pathname) + "/" + name;
+  return Object.keys(fileSystem).find(
+    key => key.toLowerCase() === keyToCheck.toLowerCase()
+  );
+};
+
 export const ifPathExists = (fileSystem, path) => {
   if (path === "/") return true;
   else {

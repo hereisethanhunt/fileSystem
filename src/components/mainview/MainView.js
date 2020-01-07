@@ -64,6 +64,7 @@ class MainView extends React.Component {
         </div>
         {this.state.modal ? (
           <Modal
+            FileSystem={FileSystem}
             modal={this.state.modal}
             toggle={this.toggle}
             addData={this.addData}
