@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import styles from "./AddModal.module.css";
-import CloseIcon from "../../images/closeIcon.svg";
-import { checkDuplicateFiles } from "../../utils/helperFunctions";
+import styles from "./AddFileModal.module.css";
+import CloseIcon from "../../../images/closeIcon.svg";
+import { checkDuplicateFiles } from "../../../utils/helperFunctions";
 class AddModal extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +41,8 @@ class AddModal extends React.Component {
     const { FileSystem, location } = this.props;
     const { pathname } = location;
     const { name } = this.state;
-    if (checkDuplicateFiles(name, FileSystem, pathname)) alert("Duplicacy");
+    if (checkDuplicateFiles(name, FileSystem, pathname))
+      alert("Duplicate Files/Folder naming");
     else {
       let newData = {
         name: this.state.name,

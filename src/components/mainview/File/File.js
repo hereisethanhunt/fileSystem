@@ -1,12 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./File.module.css";
-import FileIcon from "../../images/file.png";
-import FolderIcon from "../../images/folder.png";
+import FileIcon from "../../../images/file.png";
+import FolderIcon from "../../../images/folder.png";
 import Modal from "./Modal";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { deleteFromSystem } from "../../actions";
+import { deleteFromSystem } from "../../../actions";
 
 class File extends React.Component {
   ref = React.createRef();

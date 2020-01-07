@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./Modal.module.css";
-import CloseIcon from "../../images/closeIcon.svg";
-import FileIcon from "../../images/file.png";
-import FolderIcon from "../../images/folder.png";
+import CloseIcon from "../../../images/closeIcon.svg";
+import FileIcon from "../../../images/file.png";
+import FolderIcon from "../../../images/folder.png";
 
 class Modal extends React.Component {
   constructor(props) {

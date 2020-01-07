@@ -5,9 +5,9 @@ import {
   loadCurrentRouteData,
   getCurrentPath
 } from "../../utils/helperFunctions";
-import File from "../File";
+import File from "./File";
 import AddItem from "../../images/addItem.png";
-import Modal from "./AddModal";
+import Modal from "./AddFile/AddFileModal";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addToSystem } from "../../actions";

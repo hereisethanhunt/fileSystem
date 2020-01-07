@@ -3,7 +3,7 @@ import { deleteAllChildren } from "../utils/helperFunctions";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case ADD_ENTRY:
+    case ADD_ENTRY: {
       const newEntry = action.payload[0];
       const key = action.payload[1];
       let parent = newEntry[key].parentPath;
@@ -20,8 +20,8 @@ export default function(state = {}, action) {
       };
       localStorage.setItem("FileSystem", JSON.stringify(newData));
       return { ...newData };
-
-    case DELETE_ENTRY:
+    }
+    case DELETE_ENTRY: {
       const deleteEntry = action.payload;
       let childDeleted = deleteAllChildren({ ...state }, deleteEntry);
 
@@ -42,7 +42,7 @@ export default function(state = {}, action) {
       }
       localStorage.setItem("FileSystem", JSON.stringify(currentDataDeleted));
       return { ...currentDataDeleted };
-
+    }
     default:
       return state;
   }

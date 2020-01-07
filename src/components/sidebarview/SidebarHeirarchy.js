@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
-import styles from "./RenderDropdown.module.css";
+import styles from "./SidebarHeirarchy.module.css";
 
-class RenderDropdown extends React.Component {
+class RenderSidebarHeirarchy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,7 +72,7 @@ class RenderDropdown extends React.Component {
                 </div>
 
                 {this.state.modal[FileSystem[e].name] === true ? (
-                  <RenderDropdown
+                  <RenderSidebarHeirarchy
                     keys={e}
                     FileSystem={FileSystem}
                     history={this.props.history}
@@ -86,4 +86,4 @@ class RenderDropdown extends React.Component {
   }
 }
 
-export default withRouter(RenderDropdown);
+export default withRouter(RenderSidebarHeirarchy);

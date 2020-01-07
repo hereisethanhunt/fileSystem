@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./Sidebar.module.css";
-import RenderDropdown from "./RenderDropdown";
+import RenderSidebarHeirarchy from "./SidebarHeirarchy";
 
 class Sidebar extends React.Component {
   goToRoot = () => {
@@ -15,7 +15,10 @@ class Sidebar extends React.Component {
           ROOT
         </div>
         <div className={styles.dropdown}>
-          <RenderDropdown FileSystem={this.props.FileSystem} keys="Root" />
+          <RenderSidebarHeirarchy
+            FileSystem={this.props.FileSystem}
+            keys="Root"
+          />
         </div>
       </div>
     );

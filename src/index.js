@@ -6,7 +6,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import Reducers from "./reducers";
 
-import Root from "./view/root";
+import Root from "./view";
 import LoadInitialFileSystem from "./utils/initalFileSystem";
 
 let loadData = {

@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Root.module.css";
-import Sidebar from "../../components/sidebar";
-import MainView from "../../components/mainview";
-import SearchView from "../../components/searchview";
+import SidebarView from "../components/sidebarview";
+import MainView from "../components/mainview";
+import SearchView from "../components/searchview";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addToSystem } from "../../actions";
-import { ifPathExists } from "../../utils/helperFunctions";
+import { addToSystem } from "../actions";
+import { ifPathExists } from "../utils/helperFunctions";
 
 class Root extends React.Component {
   constructor(props) {
@@ -17,11 +17,11 @@ class Root extends React.Component {
   }
 
   componentDidMount() {
-    let truePath = ifPathExists(
+    let isBrowserPathCorrect = ifPathExists(
       this.props.FileSystem,
       this.props.location.pathname
     );
-    if (!truePath) this.props.history.push("/");
+    if (!isBrowserPathCorrect) this.props.history.push("/");
   }
 
   backdrop = bool => {
@@ -35,7 +35,7 @@ class Root extends React.Component {
           !this.state.backdrop ? styles.container : styles.openBackdrop
         }
       >
-        <Sidebar FileSystem={this.props.FileSystem} />
+        <SidebarView FileSystem={this.props.FileSystem} />
         <div className={styles.views}>
           <SearchView FileSystem={this.props.FileSystem} />
           <MainView
